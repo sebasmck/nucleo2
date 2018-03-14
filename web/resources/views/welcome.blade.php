@@ -41,8 +41,8 @@
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav cl-effect-16">
                                     <li><a href="index.html" class="active" data-hover="Home">Home</a></li>
-                                    <li><a href="{{ route('login') }}" data-hover="About">Ingresa</a></li> 
-                                    <li><a href="contact.html" data-hover="Contact">Contactanos</a></li>
+                                    <li><a href="{{ route('login')}}" data-hover="Ingresa">Ingresa</a></li> 
+                                    <li><a href="contact.html" data-hover="Contactanos">Contactanos</a></li>
                                 </ul>  
                                 <div class="clearfix"> </div>   
                             </div>
