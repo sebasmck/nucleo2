@@ -27,7 +27,7 @@
                                 <ul class="nav navbar-nav cl-effect-16">
                                     <li><a href="" style="color: black;" data-hover="Admin">Admin</a></li>
 
-                                    <li><a href="{{route('paises.index')}}" style="color: black;" data-hover="Equipos">Equipos</a></li> 
+                                    <li><a href="{{url('/selecciones')}}" style="color: black;" data-hover="Equipos">Equipos</a></li> 
                                     
                                     <li><a href="contact.html" style="color: black;" data-hover="Partidos">Partidos</a></li>
                                 </ul>  

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Laravel\Lumen\Routing\Controller as BaseController;
-use App\Historial as Historial;
+use Laravel\Lumen\Routing\Controller;
 use App\Seleccion;
 
-class RankingController extends BaseController
+
+class SeleccionesController extends Controller
 {
     function index() {
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Seleccion;
+use App\Jugador;
 
 class JugadoresController extends Controller
 {
@@ -13,7 +15,7 @@ class JugadoresController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -43,9 +45,17 @@ class JugadoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($Id_Seleccion)
     {
-        //
+        $client = new Client([
+            'base_uri' => 'http://localhost:8080'
+        ]);
+
+        $response  = $client->request('GET', 'selecciones/{$Id_Seleccion}');
+
+        $jugadores = json_decode($response->getBody()->getContents());
+        
+        return view ('admin.ver_tablas_selecciones')->with('jugadores', $jugadores);
     }
 
     /**

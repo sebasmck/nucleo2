@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pais;
 
-class PaisesController extends Controller
+use GuzzleHttp\Client;
+
+class SeleccionesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,18 @@ class PaisesController extends Controller
      */
     public function index()
     {
-        $paises = Pais::all();
 
-        return view ('admin.ver_tablas_paises')->with('paises', $paises);
+
+        $client = new Client([
+            'base_uri' => 'http://localhost:8080'
+        ]);
+
+        $response  = $client->request('GET', 'selecciones');
+
+        $selecciones = json_decode($response->getBody()->getContents());
+        
+
+        return view ('admin.ver_tablas_selecciones')->with('selecciones', $selecciones);
     }
 
     /**
@@ -47,14 +57,18 @@ class PaisesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($IdPais)
-    {
+    {   
 
-        // $pais = Jugador
 
-        // $jugadores = Jugador::;
+        $client = new Client([
+            'base_uri' => 'http://localhost:8080'
+        ]);
 
-        // return view('admin.ver_tabla_jugadores');
+        $response  = $client->request('GET', 'selecciones/{$Id_Seleccion}');
 
+        $jugadores = json_decode($response->getBody()->getContents());
+        
+        return view ('admin.ver_tablas_selecciones')->with('jugadores', $jugadores);
 
     }
 

@@ -21,7 +21,7 @@
                 <!-- top-nav -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav cl-effect-16">
-                        <li><a href="{{route('paises.index')}}" style="color: black;" data-hover="Admin">Admin</a></li>
+                        {{-- <li><a href="{{route('selecciones.index')}}" style="color: black;" data-hover="Admin">Admin</a></li> --}}
                         <li><a href="" style="color: black;" data-hover="Equipos">Equipos</a></li> 
                         <li><a href="contact.html" style="color: black;" data-hover="Partidos">Partidos</a></li>
                     </ul>  
@@ -48,13 +48,13 @@
         </thead>
         <tbody>
 
-            @foreach($paises as $pais)
+            @foreach($selecciones as $seleccion)
             <tr>
-                <td>{{$pais->Nombre}}</td>
-                <td>{{$pais->PartidosGanados}}</td>
+                <td>{{$seleccion->Nombre_Seleccion}}</td>
+                <td>{{$seleccion->Imagen_Seleccion}}</td>
                 <td>
                     <div class="col-sm-1">
-                        <a href="{{route('jugadores.show', $pais->IdPais) }}" class="btn btn-default btn-group-xs"><span class="fa fa-users"></span></a>
+                        {{-- <a href="{{route('jugadores.show', $seleccion->IdPais) }}" class="btn btn-default btn-group-xs"><span class="fa fa-users"></span></a> --}}
                     </div>
                 </td>
                 <td></td>
