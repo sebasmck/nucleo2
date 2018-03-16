@@ -17,3 +17,5 @@ $router->get('/', function () use ($router) {
 
 $router->get('/history', ['uses' => 'RankingController@index']);
 
+$router->get('/teams', ['uses' => 'TeamController@index']);
+
