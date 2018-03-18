@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav cl-effect-16">
                         {{-- <li><a href="{{route('selecciones.index')}}" style="color: black;" data-hover="Admin">Admin</a></li> --}}
-                        <li><a href="" style="color: black; text-decoration: underline;" class="active" data-hover="Selecciones">Selecciones</a></li> 
+                        <li><a href="{{route('selecciones')}}" style="color: black; text-decoration: underline;" class="active" data-hover="Selecciones">Selecciones</a></li> 
                         <li><a href="contact.html" style="color: black;" data-hover="Partidos">Partidos</a></li>
                     </ul>  
                     <div class="clearfix"> </div>   
@@ -36,7 +36,7 @@
 
 <center>
     <div style="margin-right: 35px;" class="crear">
-        <a class="agile-icon" href=""><i class="fa fa-plus"></i> Crear</a>
+        <a class="agile-icon" href=""><i class="fa fa-plus"></i> Crear Jugador</a>
     </div>    
 </center>
 
@@ -46,24 +46,20 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Equipo</th>
-                <th>Partidos Ganados</th>
-                <th>Jugadores</th>
+                <th>Nombre</th>
+                <th>Puntaje</th>
+                <th>Foto</th>
                 <th>Accion</th>
             </tr>
         </thead>
         <tbody>
 
-            @foreach($selecciones as $seleccion)
+            @foreach($jugadores as $jugador)
             <tr>
-                <td>{{$seleccion->Nombre_Seleccion}}</td>
-                <td>{{$seleccion->Imagen_Seleccion}}</td>
-                <td>
-                    <div class="col-sm-1">
-                        <a href="/selecciones/{{$seleccion->Id_Seleccion}}/jugadores" class="btn btn-default btn-group-xs"><span class="fa fa-users"></span></a>
-                    </div>
-                </td>
-                <td></td>
+                <td>{{$jugador->Nombre_Jugador}}</td>
+                <td>{{$jugador->PuntajeGeneral_Jugador}}</td>
+                <td>{{$jugador->Foto_Jugador}}</td>
+                <td>Borrar/Editar</td>
             </tr>
             @endforeach
         </tbody>

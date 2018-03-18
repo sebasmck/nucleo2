@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use GuzzleHttp\Client;
 
 class SeleccionesController extends Controller
@@ -36,7 +35,9 @@ class SeleccionesController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('admin.crear_equipos');
+
     }
 
     /**
@@ -56,7 +57,7 @@ class SeleccionesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($IdPais)
+    public function show($Id_Seleccion)
     {   
 
 
@@ -64,11 +65,11 @@ class SeleccionesController extends Controller
             'base_uri' => 'http://localhost:8080'
         ]);
 
-        $response  = $client->request('GET', 'selecciones/{$Id_Seleccion}');
+        $response  = $client->request('GET', '/selecciones/1');
 
         $jugadores = json_decode($response->getBody()->getContents());
         
-        return view ('admin.ver_tablas_selecciones')->with('jugadores', $jugadores);
+        return view ('admin.ver_tablas_jugadores')->with('jugadores', $jugadores);
 
     }
 

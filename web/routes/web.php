@@ -11,6 +11,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/selecciones', 'SeleccionesController@index')->name('selecciones');
 
-Route::get('/selecciones/{Id_Seleccion}', 'SeleccionesController@show'));
+Route::get('/crearSelecciones', 'SeleccionesController@create')->name('crearSelecciones');
 
-// Route::Resource('jugadores', 'JugadoresController');
+Route::get('/selecciones/{Id_Seleccion}/jugadores', 'SeleccionesController@show')->name('jugadores');
+
+

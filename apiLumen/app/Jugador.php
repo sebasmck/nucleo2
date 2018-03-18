@@ -6,12 +6,6 @@ class Jugador extends Model {
 
     protected $fillable = [];
 
-    protected $dates = [];
-
-    public static $rules = [
-        // Validation rules
-    ];
-
     // Relationships
      protected $table = 'Jugador';
 

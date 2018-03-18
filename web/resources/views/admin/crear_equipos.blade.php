@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav cl-effect-16">
                         {{-- <li><a href="{{route('selecciones.index')}}" style="color: black;" data-hover="Admin">Admin</a></li> --}}
-                        <li><a href="" style="color: black; text-decoration: underline;" class="active" data-hover="Selecciones">Selecciones</a></li> 
+                        <li><a href="{{route('selecciones')}}" style="color: black; text-decoration: underline;" data-hover="Selecciones">Selecciones</a></li> 
                         <li><a href="contact.html" style="color: black;" data-hover="Partidos">Partidos</a></li>
                     </ul>  
                     <div class="clearfix"> </div>   
@@ -36,38 +36,45 @@
 
 <center>
     <div style="margin-right: 35px;" class="crear">
-        <a class="agile-icon" href=""><i class="fa fa-plus"></i> Crear</a>
+        <b>Crear Una Nueva Selección</b>
     </div>    
 </center>
+
+<br><br>
 
 <div class="container">
 
 <div class="bs-docs-example">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Equipo</th>
-                <th>Partidos Ganados</th>
-                <th>Jugadores</th>
-                <th>Accion</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="col-md-8 contact-w3ls">
 
-            @foreach($selecciones as $seleccion)
-            <tr>
-                <td>{{$seleccion->Nombre_Seleccion}}</td>
-                <td>{{$seleccion->Imagen_Seleccion}}</td>
-                <td>
-                    <div class="col-sm-1">
-                        <a href="/selecciones/{{$seleccion->Id_Seleccion}}/jugadores" class="btn btn-default btn-group-xs"><span class="fa fa-users"></span></a>
-                    </div>
-                </td>
-                <td></td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+                    <form action="#" method="post">
+
+                    <div style="margin-left: 50%;" class="col-md-6 col-sm-5 agileits-w3layouts">
+                    
+                        <div class="f-control"> 
+                            <label class="header1">Nombre <span>:</span></label>
+                            <input type="text" name="First Name" required="">
+                        </div>
+                        
+                        <div class="f-control"> 
+                            <label class="header1">Imagen <span>:</span></label>
+                            <input type="email" class="email" name="Email"  required="">
+                        </div>
+                        
+                        <div class="f-control">
+                            <label class="header1"><span>Puntos Seleccion</span></label>
+                            <input type="text" name="Number"  required="">
+                        </div>  
+
+                        <div class="clearfix"> </div> 
+                        <input type="submit" value="Send">
+
+                    </div> 
+
+                </form>
+
+                </div>
+
 </div>
 
 </div>
