@@ -36,7 +36,7 @@
 
 <center>
     <div style="margin-right: 35px;" class="crear">
-        <a class="agile-icon" href=""><i class="fa fa-plus"></i> Crear Jugador</a>
+        <a class="agile-icon" href="{{route('crearJugador')}}"><i class="fa fa-plus"></i> Crear Jugador</a>
     </div>    
 </center>
 

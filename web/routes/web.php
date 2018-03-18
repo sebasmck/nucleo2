@@ -15,4 +15,4 @@ Route::get('/crearSelecciones', 'SeleccionesController@create')->name('crearSele
 
 Route::get('/selecciones/{Id_Seleccion}/jugadores', 'SeleccionesController@show')->name('jugadores');
 
-
+Route::get('/crearJugador', 'JugadoresController@create')->name('crearJugador');
