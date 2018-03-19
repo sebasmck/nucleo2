@@ -42,9 +42,9 @@
 
 <div class="container">
 
-<div class="bs-docs-example">
-    
-</div>
+    <div class="bs-docs-example">
+        {{$historial->PartidosGanados_Historial}}
+    </div>
 
 </div>
 

@@ -23,4 +23,8 @@ class Seleccion extends Model {
         public function jugadores(){
         	return $this->HasMany('App\Jugador', 'Id_Seleccion', 'Id_Seleccion');
         }
+
+        public function historial()(){
+            return $this->HasOne('App\Historial', 'IdSeleccion', 'IdSeleccion');
+        }
 }
