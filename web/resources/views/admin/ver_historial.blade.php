@@ -36,44 +36,14 @@
 
 <center>
     <div style="margin-right: 35px;" class="crear">
-        <a class="agile-icon" href="{{route('crearSelecciones')}}"><i class="fa fa-plus"></i> Crear Selección</a>
+        <a class="agile-icon" href="{{route('crearSelecciones')}}"><i class="fa fa-plus"></i> Historial Selección</a>
     </div>    
 </center>
 
 <div class="container">
 
 <div class="bs-docs-example">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Equipo</th>
-                <th>Partidos Ganados</th>
-                <th>Jugadores</th>
-                <th>Historial</th>
-                <th>Accion</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach($selecciones as $seleccion)
-            <tr>
-                <td>{{$seleccion->Nombre_Seleccion}}</td>
-                <td>{{$seleccion->Imagen_Seleccion}}</td>
-                <td>
-                    <div class="col-sm-1">
-                        <a href="/selecciones/{{$seleccion->Id_Seleccion}}/jugadores" class="btn btn-default btn-group-xs"><span class="fa fa-users"></span></a>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-sm-1">
-                        <a href="/selecciones/{{$seleccion->Id_Seleccion}}/historial" class="btn btn-default btn-group-xs"><span class="fa fa-users"></span></a>
-                    </div>
-                </td>
-                <td></td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    
 </div>
 
 </div>

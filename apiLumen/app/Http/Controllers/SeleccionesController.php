@@ -20,4 +20,11 @@ class SeleccionesController extends Controller
 
     	return response()->json($jugadores, 200);
     }
+
+    function showHistorial($Id_Seleccion){
+    	
+    	$historial = Seleccion::find($Id_Seleccion)->historial;
+
+    	return response()->json($historial, 200);
+    }
 }

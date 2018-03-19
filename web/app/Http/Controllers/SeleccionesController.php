@@ -65,13 +65,29 @@ class SeleccionesController extends Controller
             'base_uri' => 'http://localhost:8080'
         ]);
 
-        $response  = $client->request('GET', '/selecciones/1');
+        $response  = $client->request('GET', "/selecciones/{$Id_Seleccion}");
 
         $jugadores = json_decode($response->getBody()->getContents());
         
         return view ('admin.ver_tablas_jugadores')->with('jugadores', $jugadores);
 
     }
+
+
+    public function showHistorial($Id_Seleccion){
+
+        $client = new Client([
+            'base_uri' => 'http://localhost:8080'
+        ]);
+
+        $response  = $client->request('GET', "/selecciones/{$Id_Seleccion}/historial");
+
+        $historial = json_decode($response->getBody()->getContents());
+        
+        return view ('admin.ver_historial')->with('historial', $historial);
+
+    }
+
 
     /**
      * Show the form for editing the specified resource.
