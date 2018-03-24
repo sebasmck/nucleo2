@@ -47,7 +47,7 @@
         <thead>
             <tr>
                 <th>Equipo</th>
-                <th>Partidos Ganados</th>
+                <th>Bandera</th>
                 <th>Jugadores</th>
                 <th>Historial</th>
                 <th>Accion</th>

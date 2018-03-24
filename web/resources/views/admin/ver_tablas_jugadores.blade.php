@@ -36,32 +36,44 @@
 
 <center>
     <div style="margin-right: 35px;" class="crear">
-        <a class="agile-icon" href="{{route('crearJugador')}}"><i class="fa fa-plus"></i> Crear Jugador</a>
+        <a class="agile-icon" href="/selecciones/{{$Id_Seleccion}}/createJugador"><i class="fa fa-plus"></i> Crear Jugador</a>
     </div>    
+
+    
 </center>
 
 <div class="container">
 
 <div class="bs-docs-example">
     <table class="table">
+    @if(!empty($jugadores))
         <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Puntaje</th>
                 <th>Foto</th>
-                <th>Accion</th>
+                <th>Acción</th>
             </tr>
         </thead>
         <tbody>
-
+        
             @foreach($jugadores as $jugador)
-            <tr>
-                <td>{{$jugador->Nombre_Jugador}}</td>
-                <td>{{$jugador->PuntajeGeneral_Jugador}}</td>
-                <td>{{$jugador->Foto_Jugador}}</td>
-                <td>Borrar/Editar</td>
-            </tr>
+                <tr>
+                    <td>{{$jugador->Nombre_Jugador}}</td>
+                    <td>{{$jugador->PuntajeGeneral_Jugador}}</td>
+                    <td>{{$jugador->Foto_Jugador}}</td>
+                    <td>Borrar/Editar</td>
+                </tr>
             @endforeach
+        
+            @else
+            <div style="margin-top:100px;" class="container">
+                    <div class="alert alert-danger" role="alert">
+                    <center>  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <span class="sr-only">Error:</span> No existe Información </center>
+                    </div>
+                </div>
+
+            @endif
         </tbody>
     </table>
 </div>
