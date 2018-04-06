@@ -6,7 +6,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-// get 
+$router->get('/historial', ['uses' => 'RankingController@index']);
 
 $router->get('/selecciones', ['uses' => 'SeleccionesController@index']);
 
@@ -14,12 +14,17 @@ $router->get('/selecciones/{Id_Seleccion}', ['uses' => 'SeleccionesController@sh
 
 $router->get('/selecciones/{Id_Seleccion}/historial', ['uses' => 'SeleccionesController@showHistorial']);
 
+<<<<<<< HEAD
 $router->get('/partidos', ['uses' => 'PartidosController@index']);
 
 // create
+=======
+>>>>>>> parent of 1b50d70... Update
 
-$router->post('/createSeleccion', ['uses' => 'SeleccionesController@createSeleccion']);
 
+<<<<<<< HEAD
 $router->post('/createJugador', ['uses' => 'SeleccionesController@createJugador']);
 
 $router->post('/createPartido', ['uses' => 'PartidosController@createPartido']);
+=======
+>>>>>>> parent of 1b50d70... Update

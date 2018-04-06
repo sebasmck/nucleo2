@@ -4,14 +4,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Historial extends Model {
 
-    protected $table = 'Historial';
-
-    protected $primaryKey = 'Id_Historial';
-
     protected $fillable = [];
 
     protected $dates = [];
 
-    public $timestamps = false;
+    public static $rules = [
+        // Validation rules
+    ];
+
+    // Relationships
+        protected $table = 'historial';
 
 }
