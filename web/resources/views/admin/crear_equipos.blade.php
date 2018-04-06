@@ -36,7 +36,7 @@
 
 <center>
     <div style="margin-right: 35px;" class="crear">
-        <b>Crear Una Nueva Selección</b>
+        <b> Crear Nueva Selección </b> 
     </div>    
 </center>
 
@@ -46,34 +46,30 @@
 
 <div class="bs-docs-example">
     <div class="col-md-8 contact-w3ls">
+                <form action="/crearSeleccion" method="POST">
+                    
+                    {{ csrf_field() }}
 
-                    <form action="#" method="post">
+
 
                     <div style="margin-left: 50%;" class="col-md-6 col-sm-5 agileits-w3layouts">
-                    
                         <div class="f-control"> 
                             <label class="header1">Nombre <span>:</span></label>
-                            <input type="text" name="First Name" required="">
+                            <input type="text" name="Nombre_Seleccion" required="">
                         </div>
-                        
                         <div class="f-control"> 
                             <label class="header1">Imagen <span>:</span></label>
-                            <input type="email" class="email" name="Email"  required="">
+                            <input type="text" name="Imagen_Seleccion"  required="">
                         </div>
-                        
                         <div class="f-control">
                             <label class="header1"><span>Puntos Seleccion</span></label>
-                            <input type="text" name="Number"  required="">
+                            <input type="text" name="Puntos_Seleccion"  required="">
                         </div>  
-
                         <div class="clearfix"> </div> 
                         <input type="submit" value="Send">
-
                     </div> 
-
                 </form>
-
-                </div>
+    </div>
 
 </div>
 

@@ -1,6 +1,5 @@
 <?php
 
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -15,9 +14,11 @@ Route::get('/selecciones/{Id_Seleccion}/jugadores', 'SeleccionesController@show'
 
 Route::get('/selecciones/{Id_Seleccion}/historial', 'SeleccionesController@showHistorial')->name('historial');
 
-
 Route::get('/crearSelecciones', 'SeleccionesController@create')->name('crearSelecciones');
 
+Route::get('/selecciones/{Id_Seleccion}/createJugador', 'JugadoresController@createJugador');
 
+Route::post('/crearJugadorp', 'JugadoresController@store')->name('crearJugadorp');
 
-Route::get('/crearJugador', 'JugadoresController@create')->name('crearJugador');
+Route::post('/crearSeleccion', 'SeleccionesController@store')->name('crearSeleccion');
+

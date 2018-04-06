@@ -34,19 +34,58 @@
 
 <br>
 
+
+@if(empty($historial->Id_Historial))
+
 <center>
     <div style="margin-right: 35px;" class="crear">
-        <a class="agile-icon" href="{{route('crearSelecciones')}}"><i class="fa fa-plus"></i> Historial Selección</a>
+        <a class="agile-icon" href="{{route('crearSelecciones')}}"><i class="fa fa-plus"></i> Añadir Historial Selección</a>
     </div>    
 </center>
 
-<div class="container">
+@else
 
-    <div class="bs-docs-example">
-        {{$historial->PartidosGanados_Historial}}
+    <center>
+    <div style="margin-right: 35px;" class="crear">
+            <a class="agile-icon" href=""><i class="fa fa-plus"></i> Modificar Historial</a>
+        </div>
+    </center>
+
+@endif
+
+@if(!empty($historial->Id_Historial))
+
+    <div style="margin-top:100px;" class="container">
+
+        <div class="col-md-6">
+            <div class="bs-docs-example">
+                <b>Partidos Ganados:{{$historial->PartidosGanados_Historial}} </b> 
+            </div>
+
+            <div class="bs-docs-example"> 
+                <b>Partidos Jugados: {{$historial->PartidosJugados_Historial}} </b>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="bs-docs-example">
+                <b>Partidos Empatados: {{$historial->PartidosEmpatados_Historial}}</b>
+            </div>
+
+            <div class="bs-docs-example">
+                <b>Partidos Perdidos: {{$historial->PartidosPerdidos_Historial}} </b>
+            </div>
+        </div>
+
     </div>
 
+@else
+<div style="margin-top:100px;" class="container">
+    <div class="alert alert-danger" role="alert">
+    <center>  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <span class="sr-only">Error:</span> No existe Información </center>
+    </div>
 </div>
+@endif
 
 
 @endsection

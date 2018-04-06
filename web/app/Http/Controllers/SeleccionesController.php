@@ -7,32 +7,21 @@ use GuzzleHttp\Client;
 
 class SeleccionesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-
-
         $client = new Client([
             'base_uri' => 'http://localhost:8080'
         ]);
 
-        $response  = $client->request('GET', 'selecciones');
+        $response  = $client->request('GET', '/selecciones');
 
         $selecciones = json_decode($response->getBody()->getContents());
         
-
         return view ('admin.ver_tablas_selecciones')->with('selecciones', $selecciones);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         
@@ -40,23 +29,26 @@ class SeleccionesController extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+
+        $client = new Client([
+            'base_uri' => 'http://localhost:8080'
+        ]);
+
+        $response = $client->request('POST', '/createSeleccion', [
+            'form_params' => [
+                'Nombre_Seleccion' => $request->Nombre_Seleccion,
+                'Imagen_Seleccion' => $request->Imagen_Seleccion,
+                'Puntos_Seleccion' => $request->Puntos_Seleccion
+            ]
+        ]);
+
+        return back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($Id_Seleccion)
     {   
 
@@ -69,7 +61,7 @@ class SeleccionesController extends Controller
 
         $jugadores = json_decode($response->getBody()->getContents());
         
-        return view ('admin.ver_tablas_jugadores')->with('jugadores', $jugadores);
+        return view ('admin.ver_tablas_jugadores')->with('jugadores', $jugadores)->with('Id_Seleccion', $Id_Seleccion);
 
     }
 
@@ -88,36 +80,33 @@ class SeleccionesController extends Controller
 
     }
 
+    public function imageUploadPost(){
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+        request()->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        request()->image->move(public_path('images'), $imageName);
+
+        return back()
+            ->with('success','You have successfully upload image.')
+            ->with('image',$imageName);
+    }
+
+    
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
         //

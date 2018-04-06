@@ -47,27 +47,31 @@
 <div class="bs-docs-example">
     <div class="col-md-8 contact-w3ls">
 
-                    <form action="#" method="post">
+                    <form action="/crearJugadorp" method="POST">
 
                     <div style="margin-left: 50%;" class="col-md-6 col-sm-5 agileits-w3layouts">
-                    
+                        
+                        {{ csrf_field() }}
+                        <input type="hidden" name="Id_Seleccion" value="{{$Id_Seleccion}}">
+
                         <div class="f-control"> 
                             <label class="header1">Nombre <span>:</span></label>
-                            <input type="text" name="First Name" required="">
+                            <input type="text" name="Nombre_Jugador" required="">
                         </div>
                         
                         <div class="f-control"> 
                             <label class="header1">Puntaje <span>:</span></label>
-                            <input type="email" class="email" name="Email"  required="">
+                            <input type="text" name="PuntajeGeneral_Jugador"  required="">
                         </div>
                         
                         <div class="f-control">
                             <label class="header1"><span>Foto</span></label>
-                            <input type="text" name="Number"  required="">
+                            <input type="text" name="Foto_Jugador"  required="">
                         </div>  
 
                         <div class="clearfix"> </div> 
-                        <input type="submit" value="Send">
+
+                        <input type="submit" value="Enviar">
 
                     </div> 
 
