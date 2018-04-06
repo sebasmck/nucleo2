@@ -18,8 +18,11 @@ class Seleccion extends Model {
         protected $primaryKey = 'Id_Seleccion';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Relationships
 =======
+=======
+>>>>>>> parent of 1b50d70... Update
 
             // Relationships
 >>>>>>> parent of 1b50d70... Update
