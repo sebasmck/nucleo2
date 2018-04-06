@@ -14,9 +14,7 @@ class Seleccion extends Model {
 
     public $timestamps = false;
 
-       
-
-            // Relationships
+    // Relationships
 
         public function jugadores(){
         	return $this->HasMany('App\Jugador', 'Id_Seleccion', 'Id_Seleccion');
