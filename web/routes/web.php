@@ -14,6 +14,8 @@ Route::get('/selecciones/{Id_Seleccion}/jugadores', 'SeleccionesController@show'
 
 Route::get('/selecciones/{Id_Seleccion}/historial', 'SeleccionesController@showHistorial')->name('historial');
 
+Route::get('/crearHistorial', 'SeleccionesController@crearHistorial')->name('crearHistorial');
+
 Route::get('/crearSelecciones', 'SeleccionesController@create')->name('crearSelecciones');
 
 Route::get('/selecciones/{Id_Seleccion}/createJugador', 'JugadoresController@createJugador');

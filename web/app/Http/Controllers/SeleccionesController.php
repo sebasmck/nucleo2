@@ -27,6 +27,8 @@ class SeleccionesController extends Controller
         
         return view('admin.crear_equipos');
 
+        
+
     }
 
     
@@ -79,6 +81,23 @@ class SeleccionesController extends Controller
         return view ('admin.ver_historial')->with('historial', $historial);
 
     }
+
+    public function createPartidos(){
+        $date = $req->input('date');
+        $team1 = $req->input('equipo1');
+        $team2 = $req->input('equipo2');
+        $score1 = $req->input('score1');
+        $score2 = $req->input('score2');
+
+        
+        DB::select('exec insertar_partido($date,$team1,$team2,$score1,$score2');
+
+        return back();
+        
+
+    }
+
+
 
     public function imageUploadPost(){
 

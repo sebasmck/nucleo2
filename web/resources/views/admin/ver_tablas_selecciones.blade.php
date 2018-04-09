@@ -47,7 +47,7 @@
         <thead>
             <tr>
                 <th>Equipo</th>
-                <th>Bandera</th>
+                <th>Puntos Seleccion</th>
                 <th>Jugadores</th>
                 <th>Historial</th>
                 <th>Accion</th>
@@ -58,7 +58,7 @@
             @foreach($selecciones as $seleccion)
             <tr>
                 <td>{{$seleccion->Nombre_Seleccion}}</td>
-                <td>{{$seleccion->Imagen_Seleccion}}</td>
+                <td>{{$seleccion->Puntos_Seleccion}}</td>
                 <td>
                     <div class="col-sm-1">
                         <a href="/selecciones/{{$seleccion->Id_Seleccion}}/jugadores" class="btn btn-default btn-group-xs"><span class="fa fa-users"></span></a>
@@ -80,5 +80,7 @@
 
 
 @endsection
+
+
 
 
