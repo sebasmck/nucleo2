@@ -74,7 +74,7 @@ class SeleccionesController extends Controller
             'base_uri' => 'http://localhost:8080'
         ]);
 
-        $response  = $client->request('GET', "/selecciones/{$Id_Seleccion}/historial");
+        $response  = $client->request('GET', "/historial/{$Id_Seleccion}");
 
         $historial = json_decode($response->getBody()->getContents());
         
