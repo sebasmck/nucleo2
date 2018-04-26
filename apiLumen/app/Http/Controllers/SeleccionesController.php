@@ -24,7 +24,7 @@ class SeleccionesController extends Controller
 
     function showJugadores($Id_Seleccion){
 
-        $jugadores = Seleccion::find($Id_Seleccion)->jugadores->where('convocadoMundial_jugador',1);
+        $jugadores = Jugador::where('Id_Seleccion',$Id_Seleccion)->get();
         
     	return response()->json($jugadores, 200);
     }

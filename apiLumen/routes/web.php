@@ -14,22 +14,22 @@ $router->post('/createSeleccion', ['uses' => 'SeleccionesController@createSelecc
 
 $router->put('/createSeleccion/{idseleccion}', ['uses' => 'SeleccionesController@update']);
 
-//$router->delete('selecciones/{idseleccion}', ['uses' => 'SeleccionesController@delete']);
+$router->delete('/selecciones/delete/{idseleccion}', ['uses' => 'SeleccionesController@delete']);
 
 
 // Jugadores
 
 $router->get('/selecciones/{Id_Seleccion}', ['uses' => 'SeleccionesController@showJugadores']);
 
+$router->get('/selecciones/seleccionmundial/{Id_Seleccion}', ['uses' => 'JugadoresController@showJugadoresMundial']);
+
 $router->post('/createJugador', ['uses' => 'SeleccionesController@createJugador']);
 
-$router->put('selecciones/{idjugador}', ['uses' => 'SeleccionesController@updateJugador']);
+$router->put('/selecciones/{Id_Seleccion}/jugador/{idjugador}', ['uses' => 'SeleccionesController@updateJugador']);
 
-$router->delete('selecciones/{idjugador}', ['uses' => 'SeleccionesController@deleteJugador']);
+$router->delete('/selecciones/{Id_Seleccion}/jugador/{idjugador}', ['uses' => 'SeleccionesController@deleteJugador']);
 
 // Partidos
-
-$router->get('/selecciones/{Id_Seleccion}', ['uses' => 'SeleccionesController@showJugadores']);
 
 $router->post('/createPartido', ['uses' => 'SeleccionesController@createPartido']);
 
