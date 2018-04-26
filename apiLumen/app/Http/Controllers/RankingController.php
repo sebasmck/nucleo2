@@ -8,9 +8,16 @@ use App\Seleccion;
 
 class RankingController extends BaseController
 {
-    function showHistorial(){
+    function showHistorial($Id_Seleccion){
         $historial = Seleccion::find($Id_Seleccion)->historial;
         
+    	return response()->json($historial, 200);
+    }
+
+    function showRanking(){
+
+    	$historial = Seleccion::orderBy('Puntos_Seleccion', 'desc')->where('ClasificacionMundial_Seleccion',1)->get();
+
     	return response()->json($historial, 200);
     }
 }

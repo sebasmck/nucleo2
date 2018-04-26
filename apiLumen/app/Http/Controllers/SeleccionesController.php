@@ -15,9 +15,16 @@ class SeleccionesController extends Controller
     	return  response()->json($selecciones ,200);
     }
 
+    function showSeleccionById($Id_Seleccion)
+    {
+        $seleccion = Seleccion::find($Id_Seleccion)->get();
+
+        return response()->json($seleccion ,200);
+    }
+
     function showJugadores($Id_Seleccion){
 
-        $jugadores = Seleccion::find($Id_Seleccion)->jugadores;
+        $jugadores = Seleccion::find($Id_Seleccion)->jugadores->where('convocadoMundial_jugador',1);
         
     	return response()->json($jugadores, 200);
     }

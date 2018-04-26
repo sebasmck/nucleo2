@@ -4,11 +4,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Seleccion extends Model {
     
-    protected $table = 'Seleccion';
+    protected $table = 'seleccion';
 
     protected $primaryKey = 'Id_Seleccion';
 
-    protected $fillable = ['Nombre_Seleccion','Imagen_Seleccion', 'Puntos_Seleccion'];
+    protected $fillable = ['Nombre_Seleccion','Imagen_Seleccion', 'Puntos_Seleccion','IdEstadisticasEquipo_Seleccion'];
 
     protected $dates = [];
 

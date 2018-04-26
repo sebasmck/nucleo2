@@ -14,7 +14,7 @@ $router->post('/createSeleccion', ['uses' => 'SeleccionesController@createSelecc
 
 $router->put('/createSeleccion/{idseleccion}', ['uses' => 'SeleccionesController@update']);
 
-$router->delete('selecciones/{idseleccion}', ['uses' => 'SeleccionesController@delete']);
+//$router->delete('selecciones/{idseleccion}', ['uses' => 'SeleccionesController@delete']);
 
 
 // Jugadores
@@ -33,6 +33,14 @@ $router->get('/selecciones/{Id_Seleccion}', ['uses' => 'SeleccionesController@sh
 
 $router->post('/createPartido', ['uses' => 'SeleccionesController@createPartido']);
 
+// Historial
+
+$router->get('/historial/{Id_Seleccion}', ['uses' => 'RankingController@showHistorial']);
+
+
+// Ranking
+
+$router->get('/ranking', ['uses' => 'RankingController@showRanking']);
 
 
 
