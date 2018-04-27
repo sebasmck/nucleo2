@@ -10,7 +10,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "~1.0",
-        "laravelcollective/html": "^5.5",
+        "laravelcollective/html": "^5.6",
         "matriphe/imageupload": "^6.1"
     },
     "require-dev": {

@@ -59,7 +59,7 @@ class SeleccionesController extends Controller
             'base_uri' => 'http://localhost:8080'
         ]);
 
-        $response  = $client->request('GET', "/selecciones/{$Id_Seleccion}");
+        $response  = $client->request('GET', "/selecciones/{$Id_Seleccion}/jugadores");
 
         $jugadores = json_decode($response->getBody()->getContents());
         
