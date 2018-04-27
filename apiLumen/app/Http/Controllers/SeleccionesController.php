@@ -50,5 +50,23 @@ class SeleccionesController extends Controller
     }
 
 
+    function update(Request $request, $Id_Seleccion)
+    {
+        $seleccion = Seleccion::find($Id_Seleccion)->update($request->all());
+
+        return response()->json($seleccion, 200);
+    }
+
+
+    function delete(Request $request, $Id_Seleccion)
+    {
+        $seleccion = Seleccion::find($Id_Seleccion);
+
+        $seleccion->delete();
+
+        return response()->json($seleccion, 200);
+    }
+
+
 
 }

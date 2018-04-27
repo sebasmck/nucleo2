@@ -17,6 +17,24 @@ class JugadoresController extends Controller
         return  response()->json( $jugadores ,200 );
     }
 
+    function update(Request $request, $Id_Jugador)
+    {
+        $jugador = Jugador::find($Id_Jugador)->update($request->all());
+
+        return response()->json($jugador, 200);
+    }
+
+
+    function delete(Request $request, $Id_Jugador)
+    {
+        $jugador = Jugador::find($Id_Jugador);
+
+        $jugador->delete();
+
+        return response()->json($jugador, 200);
+    }
+
+
 }
 
 
