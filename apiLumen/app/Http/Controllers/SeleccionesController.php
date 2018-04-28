@@ -6,6 +6,7 @@ use Laravel\Lumen\Routing\Controller;
 use App\Seleccion;
 use Illuminate\Http\Request;
 use App\Jugador;
+use DB;
 
 
 class SeleccionesController extends Controller
@@ -17,7 +18,7 @@ class SeleccionesController extends Controller
 
     function showSeleccionById($Id_Seleccion)
     {
-        $seleccion = Seleccion::find($Id_Seleccion)->get();
+        $seleccion = Seleccion::find($Id_Seleccion);
 
         return response()->json($seleccion ,200);
     }
@@ -40,6 +41,13 @@ class SeleccionesController extends Controller
         $seleccion = Seleccion::create($request->all());
     	return response()->json($seleccion, 200);
     
+    }
+
+    function showNombresSelecciones(){
+
+        $selecciones = DB::select('SELECT Id_Seleccion,Nombre_Seleccion FROM seleccion');
+        return response()->json($selecciones,200);
+
     }
 
     function createJugador(Request $request){

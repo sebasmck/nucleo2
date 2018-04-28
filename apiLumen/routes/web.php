@@ -10,7 +10,11 @@ $router->get('/', function () use ($router) {
 
 $router->get('/selecciones', ['uses' => 'SeleccionesController@index']); //READ TEAMS
 
+$router->get('/nombresSelecciones', ['uses' => 'SeleccionesController@showNombresSelecciones']); //READ NAMES OF EACH SELECCION
+
 $router->post('/createSeleccion', ['uses' => 'SeleccionesController@createSeleccion']); // CREATE TEAMS
+
+$router->get('/selecciones/{Id_Seleccion}', ['uses' => 'SeleccionesController@showSeleccionById']); 
 
 $router->put('/selecciones/{Id_Seleccion}', ['uses' => 'SeleccionesController@update']); //UPDATE TEAMS
 
@@ -30,9 +34,18 @@ $router->put('/jugador/{Id_Jugador}', ['uses' => 'JugadoresController@updateJuga
 
 $router->delete('/jugador/{Id_Jugador}', ['uses' => 'JugadoresController@deleteJugador']); //DELETE PLAYERS
 
+
 // Partidos
 
-$router->post('/createPartido', ['uses' => 'SeleccionesController@createPartido']); // CREATE MATCH
+$router->post('/createPartido', ['uses' => 'PartidosController@createPartido']); // CREATE MATCH
+
+$router->get('/partidos',  ['uses' => 'PartidosController@index']); // READ MATCHS
+
+$router->get('/partido/{Id_Partido}',  ['uses' => 'PartidosController@getPartidoById']); // READ MATCH
+
+$router->put('/partido/{Id_Partido}',  ['uses' => 'PartidosController@update']); // UPDATE MATCH
+
+$router->delete('/partido/{Id_Partido}',  ['uses' => 'PartidosController@delete']); // DELETE MATCH
 
 // Historial
 
