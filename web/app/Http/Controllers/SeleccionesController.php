@@ -27,11 +27,24 @@ class SeleccionesController extends Controller
         
         return view('admin.crear_equipos');
 
-        
 
     }
 
+    public function prepareUpdate($Id_Seleccion)
+    {
+
+         $client = new Client([
+            'base_uri' => 'http://localhost:8080'
+        ]);
+
+        $response  = $client->request('GET', "/selecciones/{$Id_Seleccion}");
+
+        $seleccion = json_decode($response->getBody()->getContents());
+
+        return view('admin.modificar_equipo')->with('seleccion', $seleccion);
+    }
     
+
     public function store(Request $request)
     {
 
@@ -82,7 +95,7 @@ class SeleccionesController extends Controller
 
     }
 
-    public function createPartidos(){
+    public function createPartido(){
         $date = $req->input('date');
         $team1 = $req->input('equipo1');
         $team2 = $req->input('equipo2');
@@ -122,12 +135,31 @@ class SeleccionesController extends Controller
     
     public function update(Request $request, $id)
     {
-        //
+         $client = new Client([
+            'base_uri' => 'http://localhost:8080'
+        ]);
+
+        $response  = $client->request('PUT', "/selecciones/{$id}",[
+            'form_params' => [
+                'Nombre_Seleccion' => $request->Nombre_Seleccion,
+                'Imagen_Seleccion' => $request->Imagen_Seleccion,
+                'Puntos_Seleccion' => $request->Puntos_Seleccion
+            ]
+        ]);
+
+        return back();
+        
     }
 
     
     public function destroy($id)
     {
-        //
+        $client = new Client([
+            'base_uri' => 'http://localhost:8080'
+        ]);
+
+        $response  = $client->request('DELETE', "/selecciones/{$id}");
+
+        return back()->with('success', 'You have successfully delete seleccion.');
     }
 }

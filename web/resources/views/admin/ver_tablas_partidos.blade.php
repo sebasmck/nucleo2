@@ -22,8 +22,8 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav cl-effect-16">
                         {{-- <li><a href="{{route('selecciones.index')}}" style="color: black;" data-hover="Admin">Admin</a></li> --}}
-                        <li><a href="{{route('selecciones')}}" style="color: black; text-decoration: underline;" class="active" data-hover="Selecciones">Selecciones</a></li> 
-                        <li><a href="{{route('partidos')}}" style="color: black;" data-hover="Partidos">Partidos</a></li>
+                        <li><a href="{{route('selecciones')}}" style="color: black;" class="active" data-hover="Selecciones">Selecciones</a></li> 
+                        <li><a href="{{route('partidos')}}" style="color: black; text-decoration: underline;" data-hover="Partidos">Partidos</a></li>
                     </ul>  
                     <div class="clearfix"> </div>   
                 </div>
@@ -36,46 +36,38 @@
 
 <center>
     <div style="margin-right: 35px;" class="crear">
-        <a class="agile-icon" href="{{route('crearSelecciones')}}"><i class="fa fa-plus"></i> Crear Selección</a>
+        <a class="agile-icon" href="{{route('crearPartido')}}"><i class="fa fa-plus"></i> Crear partido</a>
     </div>    
 </center>
 
 <div class="container">
 
 <div class="bs-docs-example">
-    <table class="table">
-        <thead>
+    <table class="table text-center">
+        <thead >
             <tr>
-                <th>Equipo</th>
-                <th>Puntos Seleccion</th>
-                <th>Jugadores</th>
-                <th>Historial</th>
+                <th class="text-center">Fecha partido</th>
+                <th class="text-center">Primer equipo</th>
+                <th class="text-center">Marcador</th>
+                <th class="text-center">Segundo equipo</th>
                 <th class="text-center">Accion</th>
             </tr>
         </thead>
         <tbody>
 
-            @foreach($selecciones as $seleccion)
+            @foreach($partidos as $partido)
             <tr>
-                <td>{{$seleccion->Nombre_Seleccion}}</td>
-                <td>{{$seleccion->Puntos_Seleccion}}</td>
+                <td>{{$partido->Fecha_Partido}}</td>
+                <td>{{$partido->Equipo_1}}</td>
+                <td>{{$partido->Goles_1}} - {{$partido->Goles_2}}</td>
+                <td>{{$partido->Equipo_2}}</td>
                 <td>
-                    <div class="col-sm-1">
-                        <a href="/selecciones/{{$seleccion->Id_Seleccion}}/jugadores" class="btn btn-default btn-group-xs"><span class="fa fa-users"></span></a>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-sm-1">
-                        <a href="/selecciones/{{$seleccion->Id_Seleccion}}/historial" class="btn btn-default btn-group-xs"><span class="fa fa-users"></span></a>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-sm-6 text-center">
-                        <a href="/modificarSeleccion/{{$seleccion->Id_Seleccion}}" class="btn btn-default btn-group-xs"><span class="fa fa-cogs"></span></a>
+                    <div class="col-sm-6">
+                        <a href="/modificarPartido/{{$partido->Id_Partido}}" class="btn btn-default btn-group-xs"><span class="fa fa-cogs"></span></a>
                     </div>
                     
-                    <div class="col-sm-6 text-center">
-                        <a href="/eliminarSeleccion/{{$seleccion->Id_Seleccion}}" class="btn btn-default btn-group-xs"><span class="fa fa-trash"></span></a>
+                    <div class="col-sm-6">
+                        <a href="/eliminarPartido/{{$partido->Id_Partido}}" class="btn btn-default btn-group-xs"><span class="fa fa-trash"></span></a>
                     </div>                    
                 </td>
             </tr>

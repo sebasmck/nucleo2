@@ -36,7 +36,7 @@
 
 <center>
     <div style="margin-right: 35px;" class="crear">
-        <b>Crear Un Nuevo Jugador</b>
+        <b> Modificar selección </b> 
     </div>    
 </center>
 
@@ -46,38 +46,30 @@
 
 <div class="bs-docs-example">
     <div class="col-md-8 contact-w3ls">
+                <form action="/modificarSeleccion/{{$seleccion->Id_Seleccion}}" method="POST">
+                    
+                    {{ csrf_field() }}
 
-                    <form action="/crearJugadorp" method="POST">
+
 
                     <div style="margin-left: 50%;" class="col-md-6 col-sm-5 agileits-w3layouts">
-                        
-                        {{ csrf_field() }}
-                        <input type="hidden" name="Id_Seleccion" value="{{$Id_Seleccion}}">
-
                         <div class="f-control"> 
                             <label class="header1">Nombre <span>:</span></label>
-                            <input type="text" name="Nombre_Jugador" required="">
+                            <input type="text" name="Nombre_Seleccion" value="{{$seleccion->Nombre_Seleccion}}" required="">
                         </div>
-                        
                         <div class="f-control"> 
-                            <label class="header1">Puntaje <span>:</span></label>
-                            <input type="text" name="PuntajeGeneral_Jugador"  required="">
+                            <label class="header1">Imagen <span>:</span></label>
+                            <input type="text" name="Imagen_Seleccion" value="{{$seleccion->Imagen_Seleccion}}"  required="">
                         </div>
-                        
                         <div class="f-control">
-                            <label class="header1"><span>Foto</span></label>
-                            <input type="text" name="Foto_Jugador"  required="">
+                            <label class="header1"><span>Puntos Seleccion</span></label>
+                            <input type="text" name="Puntos_Seleccion" value="{{$seleccion->Puntos_Seleccion}}" required="">
                         </div>  
-
                         <div class="clearfix"> </div> 
-
-                        <input type="submit" value="Enviar">
-
+                        <input type="submit" value="Send">
                     </div> 
-
                 </form>
-
-                </div>
+    </div>
 
 </div>
 

@@ -22,8 +22,8 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav cl-effect-16">
                         {{-- <li><a href="{{route('selecciones.index')}}" style="color: black;" data-hover="Admin">Admin</a></li> --}}
-                        <li><a href="{{route('selecciones')}}" style="color: black; text-decoration: underline;" data-hover="Selecciones">Selecciones</a></li> 
-                        <li><a href="{{route('partidos')}}" style="color: black;" data-hover="Partidos">Partidos</a></li>
+                        <li><a href="{{route('selecciones')}}" style="color: black;" data-hover="Selecciones">Selecciones</a></li> 
+                        <li><a href="{{route('partidos')}}" style="color: black; text-decoration: underline;" data-hover="Partidos">Partidos</a></li>
                     </ul>  
                     <div class="clearfix"> </div>   
                 </div>
@@ -36,7 +36,7 @@
 
 <center>
     <div style="margin-right: 35px;" class="crear">
-        <b>Crear Un Nuevo Jugador</b>
+        <b>Crear Un Nuevo Partido</b>
     </div>    
 </center>
 
@@ -47,26 +47,47 @@
 <div class="bs-docs-example">
     <div class="col-md-8 contact-w3ls">
 
-                    <form action="/crearJugadorp" method="POST">
+                    <form action="/crearPartidop" method="POST">
 
                     <div style="margin-left: 50%;" class="col-md-6 col-sm-5 agileits-w3layouts">
                         
                         {{ csrf_field() }}
-                        <input type="hidden" name="Id_Seleccion" value="{{$Id_Seleccion}}">
 
                         <div class="f-control"> 
-                            <label class="header1">Nombre <span>:</span></label>
-                            <input type="text" name="Nombre_Jugador" required="">
+                            <label class="header1">Fecha <span>:</span></label>
+                            <input type="text" name="date" id="datepicker" required="">
                         </div>
                         
                         <div class="f-control"> 
-                            <label class="header1">Puntaje <span>:</span></label>
-                            <input type="text" name="PuntajeGeneral_Jugador"  required="">
+                            <label class="header1" >Primer Equipo <span>:</span></label><br/>
+
+                            <select name="equipo1" style="display: block; width: 100%; height: 45.8px">
+                                @foreach($nombres as $data)
+                                <option value="{{$data->Nombre_Seleccion}}">{{$data->Nombre_Seleccion}}</option>
+                                @endforeach
+                            </select>
                         </div>
+                        <br/>
                         
                         <div class="f-control">
-                            <label class="header1"><span>Foto</span></label>
-                            <input type="text" name="Foto_Jugador"  required="">
+                            <label class="header1">Goles Primer Equipo<span>:</span></label>
+                            <input type="text" name="score1"  required="">
+                        </div>
+
+                         <div class="f-control"> 
+                            <label class="header1">Segundo Equipo <span>:</span></label><br/>
+                            <select name="equipo2" style="display: block; width: 100%; height: 45.8px">
+                                @foreach($nombres as $data)
+                                <option value="{{$data->Nombre_Seleccion}}">{{$data->Nombre_Seleccion}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <br/>
+                        
+                        <div class="f-control">
+                            <label class="header1">Goles Segundo Equipo<span>:</span></label>
+                            <input type="text" name="score2"  required="">
                         </div>  
 
                         <div class="clearfix"> </div> 

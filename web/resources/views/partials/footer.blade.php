@@ -1,5 +1,15 @@
 <!-- //footer -->
   
+    <!-- datepickerwidged-->
+
+  
+<script type="text/javascript" charset="utf-8">
+    
+      $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+</script>
+
     <!-- js --> 
     <script src="{{asset('js/jquery-2.2.3.min.js')}}"></script> 
     <script src="{{asset('js/SmoothScroll.min.js')}}"></script>
@@ -31,6 +41,9 @@
             $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
                 });
             });
+
+            
+            
     </script>
     <!-- //end-smooth-scrolling --> 
     <!-- smooth-scrolling-of-move-up -->
