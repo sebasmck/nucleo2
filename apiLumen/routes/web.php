@@ -30,9 +30,11 @@ $router->get('/selecciones/{Id_Seleccion}/jugadores', ['uses' => 'SeleccionesCon
 
 $router->post('/createJugador', ['uses' => 'SeleccionesController@createJugador']);  // CREATE PLAYERS
 
-$router->put('/jugador/{Id_Jugador}', ['uses' => 'JugadoresController@updateJugador']); //UPDATE PLAYERS
+$router->get('/jugador/{Id_Jugador}', ['uses' => 'JugadoresController@showJugador']); //READ PLAYER
 
-$router->delete('/jugador/{Id_Jugador}', ['uses' => 'JugadoresController@deleteJugador']); //DELETE PLAYERS
+$router->put('/jugador/{Id_Jugador}', ['uses' => 'JugadoresController@update']); //UPDATE PLAYERS
+
+$router->delete('/jugador/{Id_Jugador}', ['uses' => 'JugadoresController@delete']); //DELETE PLAYERS
 
 
 // Partidos

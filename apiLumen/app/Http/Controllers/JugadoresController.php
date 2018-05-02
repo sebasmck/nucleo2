@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller;
-
+use Illuminate\Http\Request;
 use App\Jugador;
 
 
 class JugadoresController extends Controller
 {
-    
+    public function showJugador($Id_Jugador)
+    {
+        $jugador = Jugador::find($Id_Jugador);
+
+        return response()->json( $jugador ,200 );
+    }
+
+
     public function showJugadoresMundial($Id_Seleccion)
     {
         $jugadores = Jugador::where('Id_Seleccion',$Id_Seleccion)->where('convocadoMundial_jugador',1)->get();
