@@ -12,47 +12,59 @@ use DB;
 class SeleccionesController extends Controller
 {
     function index() {
-    	$selecciones = Seleccion::all();
+    	$selecciones = DB::callencrypt("CALL consultarSelecciones()");
     	return  response()->json($selecciones ,200);
     }
 
     function showSeleccionById($Id_Seleccion)
     {
-        $seleccion = Seleccion::find($Id_Seleccion);
+        $seleccion = DB::callencrypt("CALL buscarSeleccionById($Id_Seleccion)");
 
-        return response()->json($seleccion ,200);
+        return response()->json($seleccion[0] ,200);
     }
 
     function showJugadores($Id_Seleccion){
 
-        $jugadores = Jugador::where('Id_Seleccion',$Id_Seleccion)->get();
+        $jugadores = DB::callencrypt("CALL buscarJugadoresBySeleccion($Id_Seleccion)");
+
         
     	return response()->json($jugadores, 200);
     }
 
     function showHistorial($Id_Seleccion){
-        $historial = Seleccion::find($Id_Seleccion)->historial;
+         $historial = DB::callencrypt("CALL verHistorial($Id_Seleccion)");
         
     	return response()->json($historial, 200);
     }
 
     function createSeleccion(Request $request){
         
-        $seleccion = Seleccion::create($request->all());
+        $nombre = $request->input('Nombre_Seleccion');
+        $imagen = $request->input('Imagen_Seleccion');
+        $puntos = $request->input('Puntos_Seleccion');
+
+        $seleccion = DB::callencrypt("CALL insertar_seleccion('$nombre','$imagen',$puntos)");
+
     	return response()->json($seleccion, 200);
     
     }
 
     function showNombresSelecciones(){
 
-        $selecciones = DB::select('SELECT Id_Seleccion,Nombre_Seleccion FROM seleccion');
+        $selecciones =  DB::callencrypt("CALL verNombresSelecciones()");
         return response()->json($selecciones,200);
 
     }
 
     function createJugador(Request $request){
         
-        $seleccion = Jugador::create($request->all());
+        $seleccion = $request->input('Id_Seleccion');
+        $nombre = $request->input('Nombre_Jugador');
+        $puntaje = $request->input('PuntajeGeneral_Jugador');
+        $foto = $request->input('Foto_Jugador');
+        $convocado = $request->input('ConvocadoMundial_Jugador');
+
+        $seleccion = DB::callencrypt("CALL insertar_jugador_api($seleccion,'$nombre',$puntaje,'$foto',$convocado)");
     	return response()->json($seleccion, 200);
     
     }
@@ -60,7 +72,11 @@ class SeleccionesController extends Controller
 
     function update(Request $request, $Id_Seleccion)
     {
-        $seleccion = Seleccion::find($Id_Seleccion)->update($request->all());
+        $nombre = $request->input('Nombre_Seleccion');
+        $imagen = $request->input('Imagen_Seleccion');
+        $puntos = $request->input('Puntos_Seleccion');
+
+        $seleccion = DB::callencrypt("CALL actualizar_seleccion($Id_Seleccion,'$nombre','$imagen',$puntos)");
 
         return response()->json($seleccion, 200);
     }
@@ -68,10 +84,7 @@ class SeleccionesController extends Controller
 
     function delete(Request $request, $Id_Seleccion)
     {
-        $seleccion = Seleccion::find($Id_Seleccion);
-
-        $seleccion->delete();
-
+        $seleccion = DB::callencrypt("CALL eliminar_seleccion($Id_Seleccion)");
         return response()->json($seleccion, 200);
     }
 

@@ -80,8 +80,6 @@ $app->singleton(
 
  $app->register(App\Providers\AppServiceProvider::class);
 
- //$app->register(illuminate\support\Facades\DB::class);
-
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 

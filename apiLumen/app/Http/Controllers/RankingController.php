@@ -5,18 +5,19 @@ namespace App\Http\Controllers;
 use Laravel\Lumen\Routing\Controller as BaseController;
 use App\Historial as Historial;
 use App\Seleccion;
+use DB;
 
 class RankingController extends BaseController
 {
     function showHistorial($Id_Seleccion){
-        $historial = Seleccion::find($Id_Seleccion)->historial;
+        $historial = DB::callencrypt("CALL verHistorial($Id_Seleccion)");
         
-    	return response()->json($historial, 200);
+    	return response()->json($historial[0], 200);
     }
 
     function showRanking(){
 
-    	$historial = Seleccion::orderBy('Puntos_Seleccion', 'desc')->where('ClasificacionMundial_Seleccion',1)->get();
+    	$historial = DB::callencrypt("CALL verRanking()"); 
 
     	return response()->json($historial, 200);
     }
