@@ -13,7 +13,7 @@ class HistorialController extends Controller
      */
     public function index(){
         $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response  = $client->request('GET', "/historial/{Id_Seleccion}");

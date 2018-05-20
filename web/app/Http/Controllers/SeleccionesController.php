@@ -11,7 +11,7 @@ class SeleccionesController extends Controller
     public function index()
     {
         $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response  = $client->request('GET', '/selecciones');
@@ -34,7 +34,7 @@ class SeleccionesController extends Controller
     {
 
          $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response  = $client->request('GET', "/selecciones/{$Id_Seleccion}");
@@ -49,7 +49,7 @@ class SeleccionesController extends Controller
     {
 
         $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response = $client->request('POST', '/createSeleccion', [
@@ -69,7 +69,7 @@ class SeleccionesController extends Controller
 
 
         $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response  = $client->request('GET', "/selecciones/{$Id_Seleccion}/jugadores");
@@ -84,7 +84,7 @@ class SeleccionesController extends Controller
     public function showHistorial($Id_Seleccion){
 
         $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response  = $client->request('GET', "/historial/{$Id_Seleccion}");
@@ -136,7 +136,7 @@ class SeleccionesController extends Controller
     public function update(Request $request, $id)
     {
          $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response  = $client->request('PUT', "/selecciones/{$id}",[
@@ -155,7 +155,7 @@ class SeleccionesController extends Controller
     public function destroy($id)
     {
         $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response  = $client->request('DELETE', "/selecciones/{$id}");

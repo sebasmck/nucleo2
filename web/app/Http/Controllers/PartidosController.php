@@ -15,7 +15,7 @@ class PartidosController extends Controller
      */
     public function index(){
         $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response  = $client->request('GET', "/partidos");
@@ -34,7 +34,7 @@ class PartidosController extends Controller
     public function create()
     {
         $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
          $response = $client->request('GET', '/nombresSelecciones');
@@ -53,7 +53,7 @@ class PartidosController extends Controller
     public function store(Request $request)
     {
         $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response = $client->request('POST', '/createPartido', [
@@ -89,7 +89,7 @@ class PartidosController extends Controller
     public function edit($id)
     {
          $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response  = $client->request('GET', "/partido/{$id}");
@@ -109,7 +109,7 @@ class PartidosController extends Controller
     public function update(Request $request, $id)
     {
          $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response  = $client->request('PUT', "/partido/{$id}",[
@@ -134,7 +134,7 @@ class PartidosController extends Controller
     public function destroy($id)
     {
         $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response  = $client->request('DELETE', "/partido/{$id}");

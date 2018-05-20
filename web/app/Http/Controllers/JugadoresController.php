@@ -42,7 +42,7 @@ class JugadoresController extends Controller
     public function store(Request $request)
     {
         $client = new Client([
-            'base_uri' => 'http://localhost:8080'
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
         ]);
 
         $response = $client->request('POST', '/createJugador', [
@@ -50,8 +50,8 @@ class JugadoresController extends Controller
                 'Id_Seleccion' => $request->Id_Seleccion,
                 'Nombre_Jugador' => $request->Nombre_Jugador,
                 'PuntajeGeneral_Jugador' => $request->PuntajeGeneral_Jugador,
-                'Foto_Jugador' => $request->Foto_Jugador
-            ]
+                'Foto_Jugador' => $request->Foto_Jugador,
+                'ConvocadoMundial_Jugador' => $request->Convocado ]
         ]);
 
         return back();
@@ -74,9 +74,18 @@ class JugadoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( $Id_Jugador )
     {
-        //
+        $client = new Client([
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
+        ]);
+
+        $response = $client->request('GET', "/jugador/{$Id_Jugador}");
+
+        $jugador = json_decode($response->getBody()->getContents());
+
+
+        return view ('admin.modificar_jugador')->with('jugador' , $jugador);
     }
 
     /**
@@ -86,9 +95,21 @@ class JugadoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request ,  $Id_Jugador)
     {
-        //
+        $client = new Client([
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
+        ]);
+
+        $response = $client->request('PUT', "/jugador/{$Id_Jugador}", [
+            'form_params' => [
+                'Nombre_Jugador' => $request->Nombre_Jugador,
+                'PuntajeGeneral_Jugador' => $request->PuntajeGeneral_Jugador,
+                'Foto_Jugador' => $request->Foto_Jugador,
+                'ConvocadoMundial_Jugador' => $request->Convocado ]
+        ]);
+
+        return back();
     }
 
     /**
@@ -99,6 +120,12 @@ class JugadoresController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $client = new Client([
+            'base_uri' => 'http://progenesistecno.ddns.net:8100'
+        ]);
+
+        $response  = $client->request('DELETE', "/jugador/{$id}");
+
+        return back()->with('success', 'You have successfully delete player.');
     }
 }
